@@ -67,6 +67,8 @@ class _WebviewState extends ConsumerState<Webview> {
                         Future.delayed(const Duration(milliseconds: 70), () {
                           // ignore: use_build_context_synchronously
                           Navigator.pop(context, mirrorLink);
+                          // Start the download process here
+                          await downloadFile(mirrorLink, context, ref);
                         });
                       }
                     },
@@ -79,4 +81,9 @@ class _WebviewState extends ConsumerState<Webview> {
       ),
     );
   }
+}
+
+Future<void> downloadFile(String mirrorLink, BuildContext context, WidgetRef ref) async {
+  // Implement the download logic here, which might include calling the existing `downloadFile`
+  // function from `download_file.dart`, passing necessary parameters such as the retrieved mirrorLink.
 }
